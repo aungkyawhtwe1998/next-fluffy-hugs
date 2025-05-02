@@ -7,22 +7,14 @@ export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Ensure this runs only on the client side (after hydration)
-    if (typeof window !== "undefined") {
-      const handleLoad = () => {
-        setIsLoading(false);
-      };
+    // Simulate a loading screen with a timeout or animation frame
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust the delay as needed
 
-      if (document.readyState === "complete") {
-        handleLoad();
-      } else {
-        window.addEventListener("load", handleLoad);
-        return () => window.removeEventListener("load", handleLoad);
-      }
-    }
+    return () => clearTimeout(timeout);
   }, []);
 
-  // Don't render the loading screen if the page is loaded
   if (!isLoading) return null;
 
   return (
