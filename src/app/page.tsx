@@ -1,7 +1,4 @@
-'use client';
-import dynamic from "next/dynamic";
-
-const CharacterGrid = dynamic(() => import('@/components/CharacterGrid'), { ssr: false });
+import CharacterGrid from "@/components/CharacterGrid";
 
 export default function Home() {
   return (
