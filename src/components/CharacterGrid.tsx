@@ -195,7 +195,7 @@ export default function CharacterGrid() {
                 lottieRef={floatingLottieRef}
                 animationData={humanFloating}
                 loop
-                autoplay={false}
+                autoplay={true}
                 className="w-[400px] transform rotate-90 rotate-x-180 rotate-y-180 h-[400px]"
               />
             </div>
@@ -241,7 +241,7 @@ export default function CharacterGrid() {
                 lottieRef={floatingLottieRef}
                 animationData={humanWalking}
                 loop
-                autoplay={false}
+                autoplay={true}
                 className="w-[400px] absolute left-10 xl:left-20 h-[400px]"
               />
             </div>
