@@ -1,5 +1,5 @@
-import ClientWrapper from "@/components/ClientWrapper";
+import HomePage from "@/components/HomePage";
 
-export default function HomePage() {
-  return <ClientWrapper />;
+export default function page() {
+  return <HomePage />;
 }
