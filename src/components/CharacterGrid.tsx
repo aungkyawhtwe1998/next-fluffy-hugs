@@ -119,28 +119,6 @@ export default function CharacterGrid() {
     });
   }, []);
 
-  //scroll
-  // useEffect(() => {
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: containerRef.current,
-  //       start: "top top",
-  //       end: "+=3000",
-  //       scrub: true,
-  //     },
-  //   });
-  
-  //   tl.to(firstRef.current, { opacity: 0, duration: 1 })
-  //     .fromTo(secondRef.current, { opacity: 0 }, { opacity: 1, duration: 1 })
-  //     .to(secondRef.current, { opacity: 0, duration: 1 })
-  //     .fromTo(thirdRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
-  
-  //   return () => {
-  //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-  //     tl.kill();
-  //   };
-  // }, []);
-
   return (
     <section
       ref={containerRef}

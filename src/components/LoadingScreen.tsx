@@ -1,3 +1,4 @@
+// components/LoadingScreen.tsx
 "use client";
 
 import Image from "next/image";
@@ -7,12 +8,19 @@ export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a loading screen with a timeout or animation frame
-    const timeout = setTimeout(() => {
+    const handleLoad = () => {
       setIsLoading(false);
-    }, 1000); // Adjust the delay as needed
+    };
 
-    return () => clearTimeout(timeout);
+    if (typeof document !== "undefined") {
+      if (document.readyState === "complete") {
+        handleLoad();
+      } else {
+        window.addEventListener("load", handleLoad);
+        return () => window.removeEventListener("load", handleLoad);
+      }
+    }
+      
   }, []);
 
   if (!isLoading) return null;
@@ -20,7 +28,7 @@ export default function LoadingScreen() {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-white">
       <Image
-        src="/loading.webp"
+        src={"/loading.webp"}
         width={200}
         height={200}
         alt="loading"
