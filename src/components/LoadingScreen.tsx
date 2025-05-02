@@ -12,12 +12,13 @@ export default function LoadingScreen() {
       setIsLoading(false);
     };
 
-    // Wait for window load
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
+    if (typeof document !== "undefined") {
+      if (document.readyState === "complete") {
+        handleLoad();
+      } else {
+        window.addEventListener("load", handleLoad);
+        return () => window.removeEventListener("load", handleLoad);
+      }
     }
   }, []);
 
