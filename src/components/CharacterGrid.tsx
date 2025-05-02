@@ -1,4 +1,3 @@
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useEffect, useRef } from "react";
@@ -69,28 +68,27 @@ export default function CharacterGrid() {
 
   //bubble
   useEffect(() => {
-    if (bubbleRef.current) {
-      gsap.to(bubbleRef.current, {
-        y: -window.innerHeight,
-        duration: 10,
-        ease: "none",
-        repeat: -1,
-        delay: 0,
-      });
-    }
+    if (typeof window === "undefined" || !bubbleRef.current) return;
+
+    gsap.to(bubbleRef.current, {
+      y: -window.innerHeight,
+      duration: 10,
+      ease: "none",
+      repeat: -1,
+      delay: 0,
+    });
   }, []);
 
   //cat move
   useEffect(() => {
-    if (catMoveRef.current) {
-      gsap.to(catMoveRef.current, {
-        x: -window.innerWidth,
-        duration: 10,
-        ease: "none",
-        repeat: -1,
-        delay: 0,
-      });
-    }
+    if (typeof window === "undefined" || !catMoveRef.current) return;
+    gsap.to(catMoveRef.current, {
+      x: -window.innerWidth,
+      duration: 10,
+      ease: "none",
+      repeat: -1,
+      delay: 0,
+    });
   }, []);
 
   //floating
@@ -196,7 +194,7 @@ export default function CharacterGrid() {
                 lottieRef={floatingLottieRef}
                 animationData={humanFloating}
                 loop
-                autoplay={true}
+                autoplay={false}
                 className="w-[400px] transform rotate-90 rotate-x-180 rotate-y-180 h-[400px]"
               />
             </div>
@@ -242,7 +240,7 @@ export default function CharacterGrid() {
                 lottieRef={floatingLottieRef}
                 animationData={humanWalking}
                 loop
-                autoplay={true}
+                autoplay={false}
                 className="w-[400px] absolute left-10 xl:left-20 h-[400px]"
               />
             </div>
