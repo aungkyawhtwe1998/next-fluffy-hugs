@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useEffect, useRef } from "react";
-import Lottie from "lottie-react";
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -9,6 +9,7 @@ import humanFloating from "../../public/animation/human-floating.json";
 import humanWalking from "../../public/animation/human-walking.json";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
 export default function CharacterGrid() {
   const containerRef = useRef(null);
