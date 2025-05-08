@@ -2,7 +2,7 @@
 
 "use client";
 
-import { act, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import dynamic from "next/dynamic";
 

@@ -4,6 +4,7 @@ import { forwardRef, useImperativeHandle, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import useBreakpoint from "@/hooks/useBreakePoint";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,7 @@ export type CharacterGridRef = {
 const CharacterGrid = forwardRef<CharacterGridRef>((_, ref) => {
   const firstRef = useRef(null);
   const imagesRef = useRef<HTMLDivElement[]>([]);
+  const breakpoint = useBreakpoint();
 
   // Exit animation
   const animateExit = (): Promise<void> => {
@@ -111,8 +113,18 @@ const CharacterGrid = forwardRef<CharacterGridRef>((_, ref) => {
                 height={800}
                 className={`absolute object-cover bg-center transform`}
                 style={{
-                  left: -300,
-                  top: -index * 50,
+                  left:
+                    breakpoint === "mobile"
+                      ? -100
+                      : breakpoint === "tablet"
+                      ? -200
+                      : -300,
+                  top:
+                    breakpoint === "mobile"
+                      ? -index * 40
+                      : breakpoint === "tablet"
+                      ? -index * 40
+                      : -index * 50,
                 }}
               />
             </div>
