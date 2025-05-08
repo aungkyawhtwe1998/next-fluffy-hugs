@@ -18,7 +18,7 @@ export default function WalkingWithText() {
         ease: "sine.inOut",
         duration: 0.8,
         stagger: {
-          each: 0.1,     // Increase this for longer wave length
+          each: 0.1,
           repeat: -1,
           yoyo: true,
         },
