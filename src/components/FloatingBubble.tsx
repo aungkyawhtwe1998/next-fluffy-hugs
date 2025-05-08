@@ -9,7 +9,6 @@ export default function FloatingBubble() {
   const secondRef = useRef(null);
   const bubbleRef = useRef<HTMLDivElement>(null);
 
-  //bubble
   useEffect(() => {
     if (typeof window === "undefined" || !bubbleRef.current) return;
 
