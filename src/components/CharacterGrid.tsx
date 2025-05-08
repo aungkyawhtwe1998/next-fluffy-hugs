@@ -96,19 +96,24 @@ const CharacterGrid = forwardRef<CharacterGridRef>((_, ref) => {
             className="w-full z-10 max-w-[350px] aspect-[300/50] bg-contain bg-center"
           />
         </div>
-        <div className="grid grid-cols-5 md:grid-cols-4 sm:grid-cols-3">
+        <div className="grid grid-cols-4 xl:grid-cols-5">
           {Array.from({ length: 15 }).map((_, index) => (
             <div
               key={index}
               ref={(el) => {
                 if (el) imagesRef.current[index] = el;
               }}
-              className="relative w-[350px] h-[350px]">
+              className="relative  w-[400px] h-[400px] xl:w-[800px] xl:h-[800px] 2xl:w-[900px] 2xl:h-[900px]">
               <Image
                 src={`/characters/img${index + 1}.webp`}
                 alt={`character ${index + 1}`}
-                layout="fill"
-                objectFit="contain"
+                width={800}
+                height={800}
+                className={`absolute object-cover bg-center transform`}
+                style={{
+                  left: -300,
+                  top: -index * 50,
+                }}
               />
             </div>
           ))}

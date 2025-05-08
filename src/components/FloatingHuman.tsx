@@ -61,7 +61,7 @@ const FloatingHuman = ({ active }: FloatingHumanProps) => {
   return (
     <div
       ref={humanRef}
-      className={`absolute z-50 w-[300px] h-[300px] xl:w-[600px] xl:h-[600px] transform
+      className={`absolute z-30 w-[300px] h-[300px] xl:w-[600px] xl:h-[600px] transform
         ${
           active < 2
             ? "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
